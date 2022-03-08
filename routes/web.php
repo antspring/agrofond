@@ -1,6 +1,14 @@
 <?php
 
+use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\KnowledgeController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\SolutionsController;
+use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,34 +21,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/news', function(){
-    return view('pages.news');
-});
+Route::get('/news', [NewsController::class, 'index']);
 
-Route::get('/services', function(){
-    return view('pages.services');
-});
+Route::get('/services', [ServicesController::class, 'index']);
 
-Route::get('/support', function(){
-    return view('pages.support');
-});
+Route::get('/support', [SupportController::class, 'index']);
 
-Route::get('/knowledge', function(){
-    return view('pages.knowledge');
-});
+Route::get('/knowledge', [KnowledgeController::class, 'index']);
 
-Route::get('/solutions', function(){
-    return view('pages.solutions');
-});
+Route::get('/solutions', [SolutionsController::class, 'index']);
 
-Route::get('/calendar', function(){
-    return view('pages.calendar');
-});
+Route::get('/calendar', [CalendarController::class, 'index']);
 
-Route::get('/contacts', function(){
-    return view('pages.contacts');
-});
+Route::get('/contacts', [ContactsController::class, 'index']);
