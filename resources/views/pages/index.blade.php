@@ -5,18 +5,12 @@
     <section id="first" class="first">
         <div class="container">
             <div class="fslider">
-                <div class="slide">
-                    <h1 class="title">Lorem ipsum dolor. <br> Et tincidunt in senectus.</h1>
-                    <p class="text">Ultrices in suspendisse ut ipsum porttitor sed at diam. <br> Urna, tortor tortor vitae ut diam <br> adipiscing mattis maecenas.</p>
-                </div>
-                <div class="slide">
-                    <p class="title">Lorem ipsum dolor. <br> Et tincidunt in senectus.</p>
-                    <p class="text">Ultrices in suspendisse ut ipsum porttitor sed at diam. <br> Urna, tortor tortor vitae ut diam <br> adipiscing mattis maecenas.</p>
-                </div>
-                <div class="slide">
-                    <p class="title">Lorem ipsum dolor. <br> Et tincidunt in senectus.</p>
-                    <p class="text">Ultrices in suspendisse ut ipsum porttitor sed at diam. <br> Urna, tortor tortor vitae ut diam <br> adipiscing mattis maecenas.</p>
-                </div>
+                @foreach($home_slider_items as $item)
+                    <div class="slide">
+                        <h1 class="title">{{$item->heading}}</h1>
+                        <p class="text">{{$item->text}}</p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

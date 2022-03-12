@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\api\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -50,10 +50,7 @@ class BaseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post = $this->modelName::findOrFail($id);
-        $post->update($request->all());
-
-        return $post;
+        return $this->modelName::findOrFail($id)->update($request->all());
     }
 
     /**

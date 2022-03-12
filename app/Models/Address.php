@@ -5,9 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Address extends Model
 {
-    protected $fillable = ['name', 'age'];
-
-    protected $table = 'post';
+    protected $fillable = ['address'];
 }

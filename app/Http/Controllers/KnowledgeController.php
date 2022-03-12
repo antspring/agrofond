@@ -2,11 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
+use App\Models\EmailAddress;
+use App\Models\Telephone;
 use Illuminate\Http\Request;
 
 class KnowledgeController extends Controller
 {
     public function index(){
-        return view('pages.knowledge');
+        $telephone = Telephone::all();
+
+        $address = Address::all();
+
+        $email_address = EmailAddress::all();
+
+        return view('pages.knowledge',[
+            'telephone' => $telephone,
+            'address' => $address,
+            'email_address' => $email_address
+        ]);
     }
 }

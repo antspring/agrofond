@@ -2,11 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
+use App\Models\EmailAddress;
+use App\Models\Telephone;
 use Illuminate\Http\Request;
 
 class SolutionsController extends Controller
 {
     public function index(){
-        return view('pages.solutions');
+        $telephone = Telephone::all();
+
+        $address = Address::all();
+
+        $email_address = EmailAddress::all();
+
+        return view('pages.solutions',[
+            'telephone' => $telephone,
+            'address' => $address,
+            'email_address' => $email_address
+        ]);
     }
 }
