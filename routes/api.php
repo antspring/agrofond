@@ -24,8 +24,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('telephone', TelephoneController::class);
 
+Route::post('telephone/get-telephone', [TelephoneController::class, 'getTelephone']);
+
 Route::apiResource('home-slider-items', HomeSliderItemsController::class);
 
 Route::apiResource('address', AddressController::class);
 
-Route::apiResource('email-address', EmailAddressController::class);
+Route::apiResource('email', EmailAddressController::class);

@@ -10,7 +10,6 @@
                         <a href="tel:{{$item->telephone}}">{{$item->telephone}}</a>
                     @endforeach
                 </div>
-                <div class="hidden-xs smapbtn"><button>Карта сайта</button></div>
                 <div class="hidden-sm hidden-md hidden-lg menutgl">
                     <span></span>
                     <span></span>

@@ -9,7 +9,10 @@ use App\Http\Controllers\SolutionsController;
 use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\HomeController;
-
+use \App\Http\Controllers\AdminController;
+use \App\Http\Controllers\Admin\TelephoneController;
+use \App\Http\Controllers\Admin\AddressController;
+use \App\Http\Controllers\Admin\EmailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,3 +39,14 @@ Route::get('/solutions', [SolutionsController::class, 'index']);
 Route::get('/calendar', [CalendarController::class, 'index']);
 
 Route::get('/contacts', [ContactsController::class, 'index']);
+
+Route::prefix('admin')->group(function (){
+    Route::get('/', [AdminController::class, 'index']);
+    Route::get('contacts', [AdminController::class, 'contacts']);
+});
+
+Route::post('get-telephone', [TelephoneController::class, 'getTelephone']);
+
+Route::post('get-address', [AddressController::class, 'getAddress']);
+
+Route::post('get-email', [EmailController::class, 'getEmail']);

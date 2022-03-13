@@ -27,7 +27,9 @@ class BaseController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->modelName::create($request->all());
+        $this->modelName::create($request->all());
+
+        return back();
     }
 
     /**
@@ -50,7 +52,8 @@ class BaseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $this->modelName::findOrFail($id)->update($request->all());
+        $this->modelName::findOrFail($id)->update($request->all());
+        return back();
     }
 
     /**
@@ -61,6 +64,8 @@ class BaseController extends Controller
      */
     public function destroy($id)
     {
-        return $this->modelName::find($id)->delete();
+        $this->modelName::find($id)->delete();
+
+        return back();
     }
 }
