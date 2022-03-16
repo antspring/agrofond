@@ -32,9 +32,11 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/adminlte.min.css">
 </head>
-<body class="hold-transition sidebar-mini">
-    <div class="wrapper">
-        @include('admin_panel.sidebar')
+<body class="hold-transition @if (Route::is('admin.index')) login-page @else sidebar-mini @endif">
+    <div class="@if (Route::is('admin.index')) login-box @else wrapper @endif">
+        @if(!Route::is('admin.index'))
+            @include('admin_panel.sidebar')
+        @endif
         @yield('content')
     </div>
 </body>

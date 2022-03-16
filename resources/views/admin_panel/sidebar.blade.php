@@ -7,7 +7,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="contacts" class="nav-link dada">
+                    <a href="{{asset('admin/contacts')}}" class="nav-link dada">
                         <i class="fas fa-address-book nav-icon"></i>
                         <p>Контакты</p>
                     </a>

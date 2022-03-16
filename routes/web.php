@@ -41,7 +41,7 @@ Route::get('/calendar', [CalendarController::class, 'index']);
 Route::get('/contacts', [ContactsController::class, 'index']);
 
 Route::prefix('admin')->group(function (){
-    Route::get('/', [AdminController::class, 'index']);
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
     Route::get('contacts', [AdminController::class, 'contacts']);
 });
 
