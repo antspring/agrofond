@@ -13,6 +13,7 @@ use \App\Http\Controllers\AdminController;
 use \App\Http\Controllers\Admin\TelephoneController;
 use \App\Http\Controllers\Admin\AddressController;
 use \App\Http\Controllers\Admin\EmailController;
+use \App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,8 +42,15 @@ Route::get('/calendar', [CalendarController::class, 'index']);
 Route::get('/contacts', [ContactsController::class, 'index']);
 
 Route::prefix('admin')->group(function (){
-    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
-    Route::get('contacts', [AdminController::class, 'contacts']);
+    Route::get('/', [AdminController::class, 'login'])->name('admin.login');
+    Route::post('/', [AuthController::class, 'login']);
+});
+
+Route::middleware('auth')->group(function(){
+    Route::prefix('admin')->group(function (){
+        Route::get('contacts', [AdminController::class, 'contacts']);
+        Route::get('logout', [AuthController::class, 'logout']);
+    });
 });
 
 Route::post('get-telephone', [TelephoneController::class, 'getTelephone']);

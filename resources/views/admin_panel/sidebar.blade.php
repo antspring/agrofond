@@ -29,6 +29,9 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="logout">Выйти</a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
