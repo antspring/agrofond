@@ -14,6 +14,7 @@ use \App\Http\Controllers\Admin\TelephoneController;
 use \App\Http\Controllers\Admin\AddressController;
 use \App\Http\Controllers\Admin\EmailController;
 use \App\Http\Controllers\AuthController;
+use \App\Http\Controllers\Admin\HomeSliderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,6 +50,9 @@ Route::prefix('admin')->group(function (){
 Route::middleware('auth')->group(function(){
     Route::prefix('admin')->group(function (){
         Route::get('contacts', [AdminController::class, 'contacts']);
+
+        Route::resource('home-slider', HomeSliderController::class);
+
         Route::get('logout', [AuthController::class, 'logout']);
     });
 });

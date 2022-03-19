@@ -10,7 +10,7 @@
         </span>
         <div class="card-footer">
             <div class="row">
-                <button id="update_btn" data-btn="update_btn_hidden_telephone{{ $item['id'] }}" data-target="telephone_{{ $item['id'] }}" type="button" class="btn btn-info mr-3">Изменить</button>
+                <button id="update_btn" data-btn="update_btn_hidden_telephone{{ $item['id'] }}" data-target="telephone_{{ $item['id'] }}" type="button" class="btn btn-info mr-3 update_btn">Изменить</button>
                 <form action="{{route('telephone.destroy',$item['id'])}}" method="post">
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Удалить</button>

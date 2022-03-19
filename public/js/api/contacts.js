@@ -1,11 +1,3 @@
-
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
-
 $.get('../api/telephone').done(
     (response) => {
         $.post('../get-telephone', {telephone: response}).done(
@@ -30,21 +22,22 @@ $.get('../api/email').done(
     }
 )
 
-let i = 0;
-
 $(document).on('click', '#update_btn', (event) => {
-    i++;
+    $('.update_btn').text('Изменить')
     event.target.innerText = 'Подтвердить';
     let input_id = event.target.getAttribute('data-target');
     let input = document.getElementById(input_id);
-    input.classList.add('form_hidden_input_active');
     let btn_id = event.target.getAttribute('data-btn');
     let btn = document.getElementById(btn_id);
-    if( i === 2 ){
+    if(event.target.classList.contains('confirm_btn')){
         btn.click();
     }
+    $('.update_btn').removeClass('confirm_btn');
+    $('.form_hidden_input').removeClass('form_hidden_input_active');
+    input.classList.add('form_hidden_input_active');
+    event.target.classList.add('confirm_btn');
 })
 
 
 
-$('.dada').addClass('active');
+$('.contacts-link').addClass('active');

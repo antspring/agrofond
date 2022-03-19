@@ -96,5 +96,5 @@
 @endsection
 
 @section('script')
-    <script src="../js/api/contacts.js"></script>
+    <script src="{{ asset('js/api/contacts.js') }}"></script>
 @endsection

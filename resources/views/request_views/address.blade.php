@@ -9,8 +9,7 @@
             </form>
         </span>
         <div class="card-footer">
-            <button id="update_btn" data-btn="update_btn_hidden_address_{{ $item['id'] }}" data-target="address_{{ $item['id'] }}" type="button" class="btn btn-info mr-3">Изменить</button>
-{{--            <button type="button" class="btn btn-info mr-3">Изменить</button>--}}
+            <button id="update_btn" data-btn="update_btn_hidden_address_{{ $item['id'] }}" data-target="address_{{ $item['id'] }}" type="button" class="btn btn-info mr-3 update_btn">Изменить</button>
             <form action="{{route('address.destroy',$item['id'])}}" method="post">
                 @csrf
                 @method('DELETE')
