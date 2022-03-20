@@ -51,10 +51,10 @@
                                 <div class="card-footer">
                                     <div class="row">
 {{--                                        <button id="update_btn" data-btn="update_btn_hidden_telephone{{ $item['id'] }}" data-target="slider_{{ $item['id'] }}" type="button" class="btn btn-info mr-3 update_btn">Изменить</button>--}}
-                                        <button type="button" class="btn btn-info mr-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                        <button type="button" class="btn btn-info mr-3" data-bs-toggle="modal" data-bs-target="#modal_{{ $item['id'] }}">
                                             Изменить
                                         </button>
-                                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal fade" id="modal_{{ $item['id'] }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -65,15 +65,16 @@
                                                     </div>
                                                     <form action="{{ route('home-slider.update', $item['id']) }}" method="POST">
                                                         @csrf
+                                                        @method('PUT')
                                                         <div class="modal-body">
                                                             <div class="card-body">
                                                                 <div class="form-group col">
                                                                     <label for="exampleInputEmail1">Заголовок</label>
-                                                                    <textarea name="heading" type="text" class="form-control"></textarea>
+                                                                    <textarea style="height: 100px; resize: none" name="heading" type="text" class="form-control">{{ $item['heading'] }}</textarea>
                                                                 </div>
                                                                 <div class="form-group col">
                                                                     <label for="exampleInputEmail1">Текст</label>
-                                                                    <textarea name="text" type="text" class="form-control"></textarea>
+                                                                    <textarea style="height: 250px; resize: none" name="text" type="text" class="form-control">{{ $item['text'] }}</textarea>
                                                                 </div>
                                                             </div>
                                                         </div>

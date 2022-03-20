@@ -30,6 +30,12 @@
                     </ul>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ asset('admin/news') }}" class="nav-link contacts-link">
+                        <i class="fas fa-address-book nav-icon"></i>
+                        <p>Новости</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="logout">Выйти</a>
                 </li>
             </ul>

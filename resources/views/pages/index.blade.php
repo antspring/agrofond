@@ -20,36 +20,14 @@
             <h2><span>Последние</span> Новости</h2>
             <div class="leaf"><img src="img/leaf.png" alt="---"></div>
             <div class="newslider">
-                <div class="card">
-                    <img src="img/news.png" alt="Заголовок">
-                    <p class="title">Заголовок</p>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat ultrices nulla eu in nisl, ultrices. Vivamus porttitor ac aliquet quisque scelerisque phasellus.</p>
-                    <a href="single.html">Подробнее</a>
-                </div>
-                <div class="card">
-                    <img src="img/news.png" alt="Заголовок">
-                    <p class="title">Заголовок</p>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat ultrices nulla eu in nisl, ultrices. Vivamus porttitor ac aliquet quisque scelerisque phasellus.</p>
-                    <a href="single.html">Подробнее</a>
-                </div>
-                <div class="card">
-                    <img src="img/news.png" alt="Заголовок">
-                    <p class="title">Заголовок</p>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat ultrices nulla eu in nisl, ultrices. Vivamus porttitor ac aliquet quisque scelerisque phasellus.</p>
-                    <a href="single.html">Подробнее</a>
-                </div>
-                <div class="card">
-                    <img src="img/news.png" alt="Заголовок">
-                    <p class="title">Заголовок</p>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat ultrices nulla eu in nisl, ultrices. Vivamus porttitor ac aliquet quisque scelerisque phasellus.</p>
-                    <a href="single.html">Подробнее</a>
-                </div>
-                <div class="card">
-                    <img src="img/news.png" alt="Заголовок">
-                    <p class="title">Заголовок</p>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat ultrices nulla eu in nisl, ultrices. Vivamus porttitor ac aliquet quisque scelerisque phasellus.</p>
-                    <a href="single.html">Подробнее</a>
-                </div>
+                @foreach($news as $item)
+                    <div class="card">
+                        <img src="{{ asset($item['image']) }}" alt="Заголовок">
+                        <p class="title">{{ $item['heading'] }}</p>
+                        <p class="text">{{ $item['text'] }}</p>
+                        <a href="single.html">Подробнее</a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

@@ -53,6 +53,8 @@ Route::middleware('auth')->group(function(){
 
         Route::resource('home-slider', HomeSliderController::class);
 
+        Route::resource('news', \App\Http\Controllers\Admin\NewsController::class);
+
         Route::get('logout', [AuthController::class, 'logout']);
     });
 });
