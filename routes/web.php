@@ -28,6 +28,8 @@ use \App\Http\Controllers\Admin\HomeSliderController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/news/{id}', [NewsController::class, 'getNews'])->name('news.single');
+
 Route::get('/news', [NewsController::class, 'index']);
 
 Route::get('/services', [ServicesController::class, 'index']);

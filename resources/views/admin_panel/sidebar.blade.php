@@ -31,12 +31,12 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ asset('admin/news') }}" class="nav-link contacts-link">
-                        <i class="fas fa-address-book nav-icon"></i>
+                        <i class="far fa-newspaper"></i>
                         <p>Новости</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="logout">Выйти</a>
+                    <a href="logout" class="nav-link contacts-link">Выйти</a>
                 </li>
             </ul>
         </nav>

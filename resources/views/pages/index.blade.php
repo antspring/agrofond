@@ -22,10 +22,10 @@
             <div class="newslider">
                 @foreach($news as $item)
                     <div class="card">
-                        <img src="{{ asset($item['image']) }}" alt="Заголовок">
+                        <img src="{{ asset('storage/'.$item['image']) }}" alt="Заголовок">
                         <p class="title">{{ $item['heading'] }}</p>
                         <p class="text">{{ $item['text'] }}</p>
-                        <a href="single.html">Подробнее</a>
+                        <a href="{{ route('news.single', $item['id']) }}">Подробнее</a>
                     </div>
                 @endforeach
             </div>

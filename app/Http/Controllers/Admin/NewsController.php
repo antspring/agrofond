@@ -19,4 +19,17 @@ class NewsController extends BaseController
             'news' => $news
         ]);
     }
+
+    public function store(Request $request)
+    {
+        $file = $request->file('image')->store('/news', 'public');
+
+        $data = $request->all();
+
+        $data['image'] = $file;
+
+        News::create($data);
+
+        return back();
+    }
 }
