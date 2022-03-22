@@ -40,4 +40,4 @@ $(document).on('click', '#update_btn', (event) => {
 
 
 
-$('.contacts-link').addClass('active');
+$('#contacts').addClass('active');

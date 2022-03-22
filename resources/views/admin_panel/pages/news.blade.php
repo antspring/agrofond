@@ -23,19 +23,22 @@
                                 <form action="{{ route('news.store') }}" method="POST" class="save_form flex-column" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card-body">
-                                        <div class="form-group col ml-2">
-                                            <label class="custom-file-label" for="customFile">Выберите изображение</label>
-                                            <input name="image" type="file" class="custom-file-input" id="customFile">
+                                        <div class="form-group">
+                                            <label for="exampleInputFile">Загрузка изображения</label>
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input name="image" type="file" class="custom-file-input" id="exampleInputFile">
+                                                    <label class="custom-file-label" for="exampleInputFile">Выбрать файл</label>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group col">
                                             <label for="exampleInputEmail1">Заголовок</label>
-{{--                                            <input name="heading" type="text" class="form-control" id="exampleInputEmail1" placeholder="Введите заголовок" required>--}}
-                                            <textarea name="heading" class="form-control" id="exampleInputEmail1" placeholder="Введите заголовок"></textarea>
+                                            <textarea style="height: 100px; resize: none" name="heading" class="form-control" id="exampleInputEmail1" placeholder="Введите заголовок"></textarea>
                                         </div>
                                         <div class="form-group col">
                                             <label for="exampleInputEmail1">Текст</label>
-{{--                                            <input name="text" type="text" class="form-control" id="exampleInputEmail1" placeholder="Введите текст" required>--}}
-                                            <textarea name="text" class="form-control" id="exampleInputEmail1" placeholder="Введите текст"></textarea>
+                                            <textarea style="height: 250px; resize: none" name="text" class="form-control" id="exampleInputEmail1" placeholder="Введите текст"></textarea>
                                         </div>
                                     </div>
                                     <div class="card-footer ml-2">
@@ -52,4 +55,8 @@
         </section>
         <!-- /.content -->
     </div>
+@endsection
+
+@section('script')
+    <script src="{{ asset('js/pages/news.js') }}"></script>
 @endsection

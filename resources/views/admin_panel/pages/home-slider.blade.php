@@ -50,7 +50,6 @@
                                 </span>
                                 <div class="card-footer">
                                     <div class="row">
-{{--                                        <button id="update_btn" data-btn="update_btn_hidden_telephone{{ $item['id'] }}" data-target="slider_{{ $item['id'] }}" type="button" class="btn btn-info mr-3 update_btn">Изменить</button>--}}
                                         <button type="button" class="btn btn-info mr-3" data-bs-toggle="modal" data-bs-target="#modal_{{ $item['id'] }}">
                                             Изменить
                                         </button>

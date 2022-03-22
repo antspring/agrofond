@@ -7,7 +7,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ asset('admin/contacts') }}" class="nav-link contacts-link">
+                    <a id="contacts" href="{{ asset('admin/contacts') }}" class="nav-link contacts-link">
                         <i class="fas fa-address-book nav-icon"></i>
                         <p>Контакты</p>
                     </a>
@@ -30,7 +30,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('admin/news') }}" class="nav-link contacts-link">
+                    <a  id="news" href="{{ asset('admin/news') }}" class="nav-link">
                         <i class="far fa-newspaper"></i>
                         <p>Новости</p>
                     </a>
