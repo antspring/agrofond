@@ -20,7 +20,7 @@ class HomeController extends Controller
 
         $email_address = EmailAddress::all();
 
-        $news = News::all();
+        $news = News::orderByDesc('created_at')->get();
 
         return view('pages.index', [
             'telephone' => $telephone,

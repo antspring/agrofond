@@ -6,6 +6,7 @@ use App\Http\Controllers\api\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends BaseController
 {
@@ -13,11 +14,7 @@ class NewsController extends BaseController
 
     public function index()
     {
-        $news = News::all();
-
-        return view('admin_panel.pages.news', [
-            'news' => $news
-        ]);
+        return view('admin_panel.pages.news');
     }
 
     public function store(Request $request)
@@ -32,4 +29,43 @@ class NewsController extends BaseController
 
         return back();
     }
+
+    public function showAll()
+    {
+        $news = News::orderByDesc('created_at')->get();
+
+        return view('admin_panel.pages.all-news',[
+            'news' => $news
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $news = News::findOrFail($id);
+
+        $data = $request->all();
+
+        if(!$request->image){
+            $data['image'] = $news->image;
+        }
+        else{
+            $file = $request->file('image')->store('/news', 'public');
+            $data['image'] = $file;
+            Storage::disk('public')->delete($news->image);
+        }
+
+        $news->update($data);
+
+        return back();
+    }
+
+    public function destroy($id)
+    {
+        $news = News::find($id);
+        Storage::disk('public')->delete($news->image);
+
+        $news->delete();
+        return back();
+    }
+
 }

@@ -17,7 +17,7 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div id="slider_content" class="col">
+                    <div class="col">
                         <div class="form_content">
                             <div class="card card-primary">
                                 <form action="{{ route('news.store') }}" method="POST" class="save_form flex-column" enctype="multipart/form-data">
@@ -51,6 +51,7 @@
                     <!--/.col (left) -->
                 </div>
                 <!-- /.row -->
+                <a href="{{ route('news.show-all') }}" class="btn btn-success ml-4">Посмотреть все новости</a>
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->

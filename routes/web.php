@@ -57,6 +57,8 @@ Route::middleware('auth')->group(function(){
 
         Route::resource('news', \App\Http\Controllers\Admin\NewsController::class);
 
+        Route::get('news-all', [\App\Http\Controllers\Admin\NewsController::class, 'showAll'])->name('news.show-all');
+
         Route::get('logout', [AuthController::class, 'logout']);
     });
 });

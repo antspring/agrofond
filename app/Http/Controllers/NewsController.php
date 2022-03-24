@@ -17,7 +17,7 @@ class NewsController extends Controller
 
         $email_address = EmailAddress::all();
 
-        $news = News::orderBy('created_at')->limit(6)->get();
+        $news = News::orderByDesc('created_at')->limit(6)->get();
 
         return view('pages.news',[
             'telephone' => $telephone,
