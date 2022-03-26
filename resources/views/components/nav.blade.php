@@ -15,7 +15,7 @@
             <li><a href="/support">Меры поддержки</a></li>
             <li><a href="/knowledge">База знаний</a></li>
             <li><a href="/solutions">Готовые решения</a></li>
-            <li><a href="/calendar">Календарь событий</a></li>
+{{--            <li><a href="/calendar">Календарь событий</a></li>--}}
             <li><a href="/contacts">Контакты</a></li>
         </ul>
 {{--        <div class="search">--}}

@@ -4,7 +4,7 @@
 <main>
     <div class="crumbs">
         <div class="container">
-            <a href="index.html" class="homelink">Главная</a> / <span class="current">Услуги</span>
+            <a href="{{ route('home') }}" class="homelink">Главная</a> / <span class="current">Услуги</span>
         </div>
     </div>
 
@@ -13,60 +13,14 @@
             <h1 class="pageh1">Услуги</h1>
             <div class="leaf"><img src="img/leaf.png" alt="---"></div>
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="service">
-                        <img src="img/service.png" alt="Наименование">
-                        <a href="single.html" class="title">Наименование</a>
+                @foreach($services as $item)
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="service">
+                            <img src="{{ asset('storage/'.$item['image']) }}" alt="Наименование">
+                            <a href="{{ route('service', $item['id']) }}" class="title">{{ $item['heading'] }}</a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="service">
-                        <img src="img/service.png" alt="Наименование">
-                        <a href="single.html" class="title">Наименование</a>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="service">
-                        <img src="img/service.png" alt="Наименование">
-                        <a href="single.html" class="title">Наименование</a>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="service">
-                        <img src="img/service.png" alt="Наименование">
-                        <a href="single.html" class="title">Наименование</a>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="service">
-                        <img src="img/service.png" alt="Наименование">
-                        <a href="single.html" class="title">Наименование</a>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="service">
-                        <img src="img/service.png" alt="Наименование">
-                        <a href="single.html" class="title">Наименование</a>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="service">
-                        <img src="img/service.png" alt="Наименование">
-                        <a href="single.html" class="title">Наименование</a>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="service">
-                        <img src="img/service.png" alt="Наименование">
-                        <a href="single.html" class="title">Наименование</a>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="service">
-                        <img src="img/service.png" alt="Наименование">
-                        <a href="single.html" class="title">Наименование</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

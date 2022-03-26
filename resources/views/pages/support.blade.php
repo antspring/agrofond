@@ -4,7 +4,7 @@
 <main>
     <div class="crumbs">
         <div class="container">
-            <a href="index.html" class="homelink">Главная</a> / <span class="current">Меры поддержки</span>
+            <a href="{{ route('home') }}" class="homelink">Главная</a> / <span class="current">Меры поддержки</span>
         </div>
     </div>
 

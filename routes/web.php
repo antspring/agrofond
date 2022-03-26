@@ -30,7 +30,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/news/{id}', [NewsController::class, 'getNews'])->name('news.single');
 
-Route::get('/news', [NewsController::class, 'index']);
+Route::get('/news', [NewsController::class, 'index'])->name('news');
+
+Route::get('/service/{id}', [ServicesController::class, 'getService'])->name('service');
 
 Route::get('/services', [ServicesController::class, 'index']);
 
@@ -58,6 +60,14 @@ Route::middleware('auth')->group(function(){
         Route::resource('news', \App\Http\Controllers\Admin\NewsController::class);
 
         Route::get('news-all', [\App\Http\Controllers\Admin\NewsController::class, 'showAll'])->name('news.show-all');
+
+        Route::resource('services', \App\Http\Controllers\Admin\ServicesController::class);
+
+        Route::get('services-all', [\App\Http\Controllers\Admin\ServicesController::class, 'showAll'])->name('services.show-all');
+
+        Route::resource('knowledge', \App\Http\Controllers\Admin\KnowledgeController::class);
+
+        Route::resource('solutions', \App\Http\Controllers\Admin\SolutionsController::class);
 
         Route::get('logout', [AuthController::class, 'logout']);
     });

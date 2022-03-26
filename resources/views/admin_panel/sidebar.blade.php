@@ -31,8 +31,26 @@
                 </li>
                 <li class="nav-item">
                     <a  id="news" href="{{ asset('admin/news') }}" class="nav-link">
-                        <i class="far fa-newspaper"></i>
+                        <i class="far fa-newspaper ml-1 mr-2"></i>
                         <p>Новости</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a  id="services" href="{{ asset('admin/services') }}" class="nav-link">
+                        <i class="fas fa-suitcase ml-1 mr-2"></i>
+                        <p>Услуги</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a  id="knowledge" href="{{ asset('admin/knowledge') }}" class="nav-link">
+                        <i class="fas fa-brain ml-1 mr-2"></i>
+                        <p>База знаний</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a  id="solutions" href="{{ asset('admin/solutions') }}" class="nav-link">
+                        <i class="fas fa-edit ml-1 mr-2"></i>
+                        <p>Готовые решения</p>
                     </a>
                 </li>
                 <li class="nav-item">

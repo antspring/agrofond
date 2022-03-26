@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Новости</h1>
+                        <h1>Услуги</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -18,7 +18,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col">
-                        @forelse($news as $item)
+                        @forelse($services as $item)
                             <div class="card update_delete_content">
                                 <div>
                                     <span class="card-footer">
@@ -48,7 +48,7 @@
                                                                 <i class="fas fa-times"></i>
                                                             </button>
                                                         </div>
-                                                        <form action="{{ route('news.update', $item['id']) }}" method="POST" enctype="multipart/form-data">
+                                                        <form action="{{ route('services.update', $item['id']) }}" method="POST" enctype="multipart/form-data">
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="modal-body">
@@ -78,7 +78,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <form action="{{route('news.destroy',$item['id'])}}" method="POST">
+                                            <form action="{{route('services.destroy',$item['id'])}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Удалить</button>
@@ -88,7 +88,7 @@
                                 </div>
                             </div>
                         @empty
-                                Нету новостей
+                            Нету улсуг
                         @endforelse
                     </div>
                     <!--/.col (left) -->
@@ -101,5 +101,5 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('js/pages/news.js') }}"></script>
+    <script src="{{ asset('js/pages/services.js') }}"></script>
 @endsection

@@ -536,6 +536,7 @@ section#knowledge { padding-bottom: 20px; }
 .service img {
 	height: 220px;
 	object-fit: cover;
+    width: 100%;
 }
 
 .service .title {

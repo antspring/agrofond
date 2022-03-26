@@ -39,7 +39,7 @@ class NewsController extends Controller
             'telephone' => $telephone,
             'address' => $address,
             'email_address' => $email_address,
-            'news' => News::find($id)
+            'content' => News::find($id)
         ]);
     }
 }
