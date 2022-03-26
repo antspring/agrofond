@@ -404,6 +404,7 @@ section#lastnews { padding: 60px 0; }
 	font-size: 21px;
 	line-height: 1.2;
 	font-weight: bold;
+    min-height: 76px;
 }
 
 .card .text {
