@@ -19,7 +19,6 @@ class CreateFormsTable extends Migration
             $table->string('telephone');
             $table->string('email');
             $table->text('message')->nullable();
-            $table->smallInteger('type');
             $table->timestamps();
         });
     }
