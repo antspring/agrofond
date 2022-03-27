@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Новости</h1>
+                        <h1>Меры поддержки</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -18,16 +18,22 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col">
-                        @forelse($news as $item)
+                        @forelse($support_measures as $item)
                             <div class="card update_delete_content">
                                 <div>
                                     <span class="card-footer">
                                         <div class="col">
                                             <img style="width: 400px" src="{{ asset('storage/'.$item['image']) }}" alt="">
+                                            <div class="col content_font mt-3">
+                                                {{ \App\Models\SupportMeasures::getTypesText($item['support_type']) }}
+                                            </div>
+                                            <div class="col content_font mt-3">
+                                                <a href="{{ asset('storage/'.$item['file']) }}">{{ str_replace(['support/files/'], '',$item['file']) }}</a>
+                                            </div>
                                         </div>
                                         <div>
                                             <div class="col content_font">
-                                                {{ $item['heading'] }}
+                                                {{ $item['title'] }}
                                             </div>
                                             <div class="col">
                                                 {{ $item['text'] }}
@@ -48,7 +54,7 @@
                                                                 <i class="fas fa-times"></i>
                                                             </button>
                                                         </div>
-                                                        <form action="{{ route('news.update', $item['id']) }}" method="POST" enctype="multipart/form-data">
+                                                        <form action="{{ route('support.update', $item['id']) }}" method="POST" enctype="multipart/form-data">
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="modal-body">
@@ -57,16 +63,32 @@
                                                                         <label for="exampleInputFile">Загрузка изображения</label>
                                                                         <div class="custom-file">
                                                                             <input name="image" type="file" class="custom-file-input">
+                                                                            <label class="custom-file-label" for="exampleInputFile">Выбрать изображение</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group col">
+                                                                        <label for="exampleInputFile">Загрузка файла</label>
+                                                                        <div class="custom-file">
+                                                                            <input name="file" type="file" class="custom-file-input">
                                                                             <label class="custom-file-label" for="exampleInputFile">Выбрать файл</label>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group col">
                                                                         <label for="exampleInputEmail1">Заголовок</label>
-                                                                        <textarea style="height: 100px; resize: none" name="heading" type="text" class="form-control">{{ $item['heading'] }}</textarea>
+                                                                        <textarea style="height: 100px; resize: none" name="title" type="text" class="form-control">{{ $item['title'] }}</textarea>
                                                                     </div>
                                                                     <div class="form-group col">
                                                                         <label for="exampleInputEmail1">Текст</label>
                                                                         <textarea style="height: 250px; resize: none" name="text" type="text" class="form-control">{{ $item['text'] }}</textarea>
+                                                                    </div>
+                                                                    <div class="form-group col">
+                                                                        <label>Тип поддержки</label>
+                                                                        <select name="support_type" class="form-control">
+                                                                            <option value="{{ $item['support_type'] }}" hidden>{{ \App\Models\SupportMeasures::getTypesText($item['support_type']) }}</option>
+                                                                            @foreach($support_types as $support_type)
+                                                                                <option value="{{ $support_type['id'] }}">{{ $support_type['name'] }}</option>
+                                                                            @endforeach
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -78,7 +100,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <form action="{{route('news.destroy',$item['id'])}}" method="POST">
+                                            <form action="{{route('support.destroy',$item['id'])}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Удалить</button>
@@ -88,7 +110,7 @@
                                 </div>
                             </div>
                         @empty
-                                Нету новостей
+                            Нету мер поддержки
                         @endforelse
                     </div>
                     <!--/.col (left) -->
@@ -101,5 +123,5 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('js/pages/news.js') }}"></script>
+    <script src="{{ asset('js/pages/support.js') }}"></script>
 @endsection

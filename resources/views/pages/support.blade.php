@@ -18,22 +18,18 @@
                     <p class="title">Финансовая поддержка</p>
                     <a href="javascript:void(0);"><img src="img/arrow.png" alt="▼"></a>
                 </div>
-                <div class="content">
-                    <div class="icon"><img src="img/fond.png" alt="Микрозаймы Фонда микрофинансирования Курганской области"></div>
-                    <div class="info">
-                        <p class="name">Микрозаймы Фонда микрофинансирования Курганской области</p>
-                        <p class="text">Своя ферма.</p>
-                        <a href="supportitem.html">Подробнее</a>
+                @foreach($supportMeasures as $item)
+                    @if($item['support_type'] === 1)
+                    <div class="content">
+                        <div class="icon"><img src="{{ asset('storage/'.$item['image']) }}" alt="{{ $item['title'] }}"></div>
+                        <div class="info">
+                            <p class="name">{{ $item['title'] }}</p>
+                            <p class="text">{{ \Illuminate\Support\Str::limit($item['text'], 40) }}</p>
+                            <a href="{{ route('support', $item['id']) }}">Подробнее</a>
+                        </div>
                     </div>
-                </div>
-                <div class="content">
-                    <div class="icon"><img src="img/fond.png" alt="Микрозаймы Фонда микрофинансирования Курганской области"></div>
-                    <div class="info">
-                        <p class="name">Микрозаймы Фонда микрофинансирования Курганской области</p>
-                        <p class="text">Своя ферма.</p>
-                        <a href="supportitem.html">Подробнее</a>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
             </div>
             <div class="supportcard">
                 <div class="head">
@@ -41,14 +37,18 @@
                     <p class="title">Имущественная поддержка</p>
                     <a href="javascript:void(0);"><img src="img/arrow.png" alt="▼"></a>
                 </div>
-                <div class="content">
-                    <div class="icon"><img src="img/fond.png" alt="Микрозаймы Фонда микрофинансирования Курганской области"></div>
-                    <div class="info">
-                        <p class="name">Микрозаймы Фонда микрофинансирования Курганской области</p>
-                        <p class="text">Своя ферма.</p>
-                        <a href="supportitem.html">Подробнее</a>
-                    </div>
-                </div>
+                @foreach($supportMeasures as $item)
+                    @if($item['support_type'] === 2)
+                        <div class="content">
+                            <div class="icon"><img src="{{ asset('storage/'.$item['image']) }}" alt="{{ $item['title'] }}"></div>
+                            <div class="info">
+                                <p class="name">{{ $item['title'] }}</p>
+                                <p class="text">{{ \Illuminate\Support\Str::limit($item['text'], 40) }}</p>
+                                <a href="{{ route('support', $item['id']) }}">Подробнее</a>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
             </div>
             <div class="supportcard">
                 <div class="head">
@@ -56,14 +56,18 @@
                     <p class="title">Административная поддержка</p>
                     <a href="javascript:void(0);"><img src="img/arrow.png" alt="▼"></a>
                 </div>
-                <div class="content">
-                    <div class="icon"><img src="img/fond.png" alt="Микрозаймы Фонда микрофинансирования Курганской области"></div>
-                    <div class="info">
-                        <p class="name">Микрозаймы Фонда микрофинансирования Курганской области</p>
-                        <p class="text">Своя ферма.</p>
-                        <a href="supportitem.html">Подробнее</a>
-                    </div>
-                </div>
+                @foreach($supportMeasures as $item)
+                    @if($item['support_type'] === 3)
+                        <div class="content">
+                            <div class="icon"><img src="{{ asset('storage/'.$item['image']) }}" alt="{{ $item['title'] }}"></div>
+                            <div class="info">
+                                <p class="name">{{ $item['title'] }}</p>
+                                <p class="text">{{ \Illuminate\Support\Str::limit($item['text'], 40) }}</p>
+                                <a href="{{ route('support', $item['id']) }}">Подробнее</a>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
             </div>
         </div>
     </section>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKnowledgeTable extends Migration
+class CreateSupportTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateKnowledgeTable extends Migration
      */
     public function up()
     {
-        Schema::create('knowledge', function (Blueprint $table) {
+        Schema::create('support_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
-            $table->string('file');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateKnowledgeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('knowledge');
+        Schema::dropIfExists('support_types');
     }
 }

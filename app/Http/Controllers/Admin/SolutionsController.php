@@ -64,6 +64,9 @@ class SolutionsController extends Controller
 
                 Storage::disk('public')->delete($solutions->file);
             }
+            else{
+                return back();
+            }
         }
 
         $solutions->update($data);

@@ -111,7 +111,7 @@
                                                                 <div class="form-group col">
                                                                     <label>Категория</label>
                                                                     <select name="category_id" class="form-control">
-                                                                        <option value="{{ $solution['id'] }}" hidden>Выберите категорию</option>
+                                                                        <option value="{{ $solution['category_id'] }}" hidden>{{ \App\Models\Solutions::getCategoriesText($solution['category_id']) }}</option>
                                                                         @foreach($categories as $item)
                                                                             <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
                                                                         @endforeach

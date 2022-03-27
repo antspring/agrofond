@@ -42,6 +42,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a  id="support" href="{{ asset('admin/support') }}" class="nav-link">
+                        <i class="fas fa-fist-raised ml-1 mr-2"></i>
+                        <p>Меры поддержки</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a  id="knowledge" href="{{ asset('admin/knowledge') }}" class="nav-link">
                         <i class="fas fa-brain ml-1 mr-2"></i>
                         <p>База знаний</p>
@@ -51,6 +57,12 @@
                     <a  id="solutions" href="{{ asset('admin/solutions') }}" class="nav-link">
                         <i class="fas fa-edit ml-1 mr-2"></i>
                         <p>Готовые решения</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a  id="forms" href="{{ asset('admin/forms') }}" class="nav-link">
+                        <i class="fab fa-wpforms ml-1 mr-2"></i>
+                        <p>Обратная звязь</p>
                     </a>
                 </li>
                 <li class="nav-item">

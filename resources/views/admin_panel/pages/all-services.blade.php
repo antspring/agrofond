@@ -54,7 +54,7 @@
                                                             <div class="modal-body">
                                                                 <div class="card-body">
                                                                     <div class="form-group col">
-                                                                        <label id="asdf_{{ $item['id'] }}" for="exampleInputFile">Загрузка изображения</label>
+                                                                        <label for="exampleInputFile">Загрузка изображения</label>
                                                                         <div class="custom-file">
                                                                             <input name="image" type="file" class="custom-file-input">
                                                                             <label class="custom-file-label" for="exampleInputFile">Выбрать файл</label>

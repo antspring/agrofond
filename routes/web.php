@@ -9,6 +9,7 @@ use App\Http\Controllers\SolutionsController;
 use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\HomeController;
+use \App\Http\Controllers\FormController;
 use \App\Http\Controllers\AdminController;
 use \App\Http\Controllers\Admin\TelephoneController;
 use \App\Http\Controllers\Admin\AddressController;
@@ -38,6 +39,8 @@ Route::get('/services', [ServicesController::class, 'index']);
 
 Route::get('/support', [SupportController::class, 'index']);
 
+Route::get('/support/{id}', [SupportController::class, 'getSupport'])->name('support');
+
 Route::get('/knowledge', [KnowledgeController::class, 'index']);
 
 Route::get('/solutions', [SolutionsController::class, 'index']);
@@ -45,6 +48,8 @@ Route::get('/solutions', [SolutionsController::class, 'index']);
 Route::get('/calendar', [CalendarController::class, 'index']);
 
 Route::get('/contacts', [ContactsController::class, 'index']);
+
+Route::post('/form', [FormController::class, 'getForm'])->name('form');
 
 Route::prefix('admin')->group(function (){
     Route::get('/', [AdminController::class, 'login'])->name('admin.login');
@@ -65,9 +70,15 @@ Route::middleware('auth')->group(function(){
 
         Route::get('services-all', [\App\Http\Controllers\Admin\ServicesController::class, 'showAll'])->name('services.show-all');
 
+        Route::resource('support', \App\Http\Controllers\Admin\SupportController::class);
+
+        Route::get('support-all', [\App\Http\Controllers\Admin\SupportController::class, 'showAll'])->name('support.show-all');
+
         Route::resource('knowledge', \App\Http\Controllers\Admin\KnowledgeController::class);
 
         Route::resource('solutions', \App\Http\Controllers\Admin\SolutionsController::class);
+
+        Route::resource('forms', FormController::class);
 
         Route::get('logout', [AuthController::class, 'logout']);
     });
