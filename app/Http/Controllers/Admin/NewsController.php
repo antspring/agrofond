@@ -8,9 +8,8 @@ use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class NewsController extends BaseController
+class NewsController extends Controller
 {
-    public $modelName = News::class;
 
     public function index()
     {

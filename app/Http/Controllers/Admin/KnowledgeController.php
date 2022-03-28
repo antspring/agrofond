@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\api\Controllers\BaseController;
+use App\Http\Controllers\Controller;
 use App\Models\Knowledge;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class KnowledgeController extends BaseController
+class KnowledgeController extends Controller
 {
-    public $modelName = Knowledge::class;
-
+    
     public function index()
     {
         $knowledge = Knowledge::all();
